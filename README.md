@@ -2,6 +2,9 @@ FallenWorld
 
 Video presentation: https://www.youtube.com/watch?v=azSOyIO2Afk&ab_channel=Pawe%C5%82.M
 
+This is only symbolic repository
+--------------------------------
+
 Change log
 
 Build 1
