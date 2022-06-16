@@ -1,6 +1,6 @@
 FallenWorld
 
-Video presentation: https://www.youtube.com/watch?v=azSOyIO2Afk&ab_channel=Pawe%C5%82.M
+Video presentation: https://www.youtube.com/watch?v=Nh0Jv8ZfeWU&list=PLKjqaxlU8ZH_GMGLJz_0GcTbtj4zltgyu&ab_channel=Pawe%C5%82.M
 
 This is only symbolic repository
 --------------------------------
@@ -35,3 +35,13 @@ Hero model
 
 07.02.22
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Change log
+
+Build 3
+
+Added:
+
+Example loot
+Treasure chests
+
+15.06.22
