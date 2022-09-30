@@ -1,11 +1,23 @@
 FallenWorld
 
-Video presentation: https://www.youtube.com/watch?v=Nh0Jv8ZfeWU&list=PLKjqaxlU8ZH_GMGLJz_0GcTbtj4zltgyu&ab_channel=Pawe%C5%82.M
+Video presentation: https://www.youtube.com/watch?v=kTJjoifzrak&list=PLKjqaxlU8ZH_GMGLJz_0GcTbtj4zltgyu&index=1
 
 This is only symbolic repository
---------------------------------
 
-Change log
+--------------------------------
+Change logs
+
+Build 4
+
+Added:
+
+Trade system
+Small village
+Vendors
+Healing potions
+
+29.09.22
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Build 3
 
@@ -15,9 +27,8 @@ Example loot
 
 Treasure chests
 
-15.06.15
+15.06.22
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Change log
 
 Build 2
 
@@ -35,7 +46,6 @@ Hero model
 
 07.02.22
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Change log
 
 Build 1
 
