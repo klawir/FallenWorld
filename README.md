@@ -12,8 +12,11 @@ Build 4
 Added:
 
 Trade system
+
 Small village
+
 Vendors
+
 Healing potions
 
 29.09.22
@@ -35,9 +38,13 @@ Build 2
 Added:
 
 Inventory
+
 Equipment
+
 Save system
+
 Example items
+
 Main menu scene
 
 Changed:
