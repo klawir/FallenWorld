@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 226f6dfddca4195459c2d8bf6c3b5eb6, type: 3}
+  m_Name: Blessed Shield
+  m_EditorClassIdentifier: 
+  damage:
+    min: 3
+    max: 4
+  coolDown: 3
+  range: 100
+  basicData: {fileID: 11400000, guid: 370ff7735aaed554594fdb95be03bdc6, type: 2}
+  animationAttackTypeTrigger: 2
+  spawnLocalization: 0
+  aoeType: 0
+  manaCost: 15
+  hasMainSpell: 1
+  effect: {fileID: 8162623699061535276, guid: ccf34a2f79b42af4fa0f8ef1dc7de28d, type: 3}
+  hasSubSpell: 1
+  subSpellAsCreatedAsset:
+  - {fileID: 11400000, guid: 3d354788453aa8a479c589d8f5fb5775, type: 2}
+  - {fileID: 11400000, guid: a159f1829e9011b499864a775651c103, type: 2}
+  crowdControlType: 0
+  durationTimeOfParalize: 0
+  durationTimeOfFear: 0
+  durationTimeOfStun: 1

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b47961230b09c9144af6de242e2c94d0, type: 3}
+  m_Name: Might
+  m_EditorClassIdentifier: 
+  damage:
+    min: 0
+    max: 0
+  coolDown: 0
+  range: 0
+  basicData: {fileID: 11400000, guid: 688b56dad5871794487e9a6390cc60b8, type: 2}
+  animationAttackTypeTrigger: 0
+  spawnLocalization: 2
+  aoeType: 0
+  manaCost: 0
+  hasMainSpell: 1
+  effect: {fileID: 19800000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
+  hasSubSpell: 0
+  subSpellAsCreatedAsset: []
+  crowdControlType: 0
+  durationTimeOfParalize: 0
+  durationTimeOfFear: 0
+  durationTimeOfStun: 0
+  bonusToDamage: 25
+  startSfx: {fileID: 8300000, guid: c9e6f8bfcb98f5e49baf766bf0a7d889, type: 3}
