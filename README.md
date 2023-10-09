@@ -2,8 +2,9 @@ FallenWorld
 
 Video presentation: https://youtu.be/PwN6BxRe8yI?list=PLKjqaxlU8ZH_GMGLJz_0GcTbtj4zltgyu
 
-This is only symbolic repository
 
+This is only symbolic repository
+--------------------------------
 Change logs
 
 Build 5
@@ -18,7 +19,6 @@ Skeletons and Undead warriors
 Mana potions
 
 09.10.23
-
 --------------------------------
 Change logs
 
