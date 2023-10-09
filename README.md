@@ -1,8 +1,23 @@
 FallenWorld
 
-Video presentation: https://www.youtube.com/watch?v=kTJjoifzrak&list=PLKjqaxlU8ZH_GMGLJz_0GcTbtj4zltgyu&index=1
+Video presentation: https://youtu.be/PwN6BxRe8yI?list=PLKjqaxlU8ZH_GMGLJz_0GcTbtj4zltgyu
 
 This is only symbolic repository
+
+Change logs
+
+Build 5
+
+Added:
+
+The skill system
+
+Monsters:
+Skeletons and Undead warriors
+
+Mana potions
+
+09.10.23
 
 --------------------------------
 Change logs
