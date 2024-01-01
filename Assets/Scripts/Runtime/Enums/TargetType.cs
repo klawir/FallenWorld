@@ -19,6 +19,7 @@ namespace Game.Enum.Target
         SelectedLoot,
         HiddenTreasure,
         Npc,
-        ItemBeingDropped
+        ItemBeingDropped,
+        BorderOfLocation
     }
 }

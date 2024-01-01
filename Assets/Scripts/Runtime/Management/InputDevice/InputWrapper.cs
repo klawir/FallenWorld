@@ -1,19 +1,19 @@
 using UnityEngine;
 
-namespace Game.Management
+namespace Game.Runtime.Management.InputDevice
 {
     [System.Serializable]
-    public struct InputDevicesWrapper
+    public struct InputWrapper
     {
-        [SerializeField] private Mouse.Mouse mouse;
+        [SerializeField] private Mouse.MouseControler mouse;
         [SerializeField] private Keyboard keyboard;
 
-        internal Mouse.Mouse Mouse => mouse;
+        internal Mouse.MouseControler Mouse => mouse;
         internal Keyboard Keyboard => keyboard;
 
         internal void Construct(GameMainManager gameMainManager)
         {
-            mouse.Construct(gameMainManager); 
+            mouse.Construct(gameMainManager);
             keyboard.Construct(gameMainManager);
         }
     }

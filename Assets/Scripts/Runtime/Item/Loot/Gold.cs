@@ -1,20 +1,23 @@
-
-using Game.UI.Text;
+using Game.Runtime.UI.Text;
 using UnityEngine;
 
-namespace Game.Item
+namespace Game.Runtime.Item.Loot
 {
     public class Gold : Loot
     {
-        [SerializeField] private Material dropMaterial;
-        [SerializeField] private FloatingText gettingEffectPrefab;
+        [SerializeField] private Material effectMaterial;
 
         [Zenject.Inject]
         private FloatingText.Factory factory;
 
         public int Value { get; private set; }
-        internal Material DropMaterial => dropMaterial;
 
+        public override void Select()
+        {
+            base.Select();
+
+            _localMesh.MeshRenderer.material = effectMaterial;
+        }
 
         internal override void HasFellOnTheGround()
         {
@@ -35,7 +38,6 @@ namespace Game.Item
             DisableLocalCollider();
             DisableGraphic();
             DetachHotKeyAltPressing();
-            DetachUpdateHUDPosition();
             _globalLootManager.DeleteSingle(this);
             DeleteLabels();
             DeleteFromTheGround();
@@ -52,9 +54,7 @@ namespace Game.Item
         {
             FloatingText gettingEffect = factory.Create();
 
-            gettingEffect.Initialize(singleLabel);
-            gettingEffect.SetColor(Color.yellow);
-            gettingEffect._startWorldPosition = singleLabel.Owner.transform.position;
+            gettingEffect.Initialize(singleLabel, Color.yellow);
             gettingEffect.Play();
         }
 

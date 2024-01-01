@@ -1,17 +1,32 @@
-FallenWorld
+Fallen world
 
-Video presentation: https://youtu.be/PwN6BxRe8yI?list=PLKjqaxlU8ZH_GMGLJz_0GcTbtj4zltgyu
+Video presentation: https://www.youtube.com/playlist?list=PLKjqaxlU8ZH_GMGLJz_0GcTbtj4zltgyu
 
 
 This is only symbolic repository
---------------------------------
-Change logs
 
-Build 5
+						Change logs
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+						Build 6: The transportaton system
 
 Added:
 
-The skill system
+Portal
+Waypoints
+
+31.12.23
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+						Build 5: The skill system
+
+Added:
+
+Skill tree
+
+Skills:
+Fist of Heavens, Blessed shield, Blessed hammer, Zeal, Might
 
 Monsters:
 Skeletons and Undead warriors
@@ -19,25 +34,23 @@ Skeletons and Undead warriors
 Mana potions
 
 09.10.23
---------------------------------
-Change logs
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Build 4
+						Build 4: Trade system
 
 Added:
 
-Trade system
-
 Small village
 
-Vendors
+Vendors:
+Blacksmith
+Witch
 
 Healing potions
 
 29.09.22
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-Build 3
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+						Build 3: Loot
 
 Added:
 
@@ -48,8 +61,8 @@ Treasure chests
 15.06.22
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Build 2
-
+						Build 2: Inventory and equipment
+	
 Added:
 
 Inventory
@@ -69,7 +82,7 @@ Hero model
 07.02.22
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Build 1
+						Build 1
 
 Added:
 
