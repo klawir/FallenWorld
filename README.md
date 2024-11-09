@@ -9,6 +9,30 @@ https://www.youtube.com/watch?v=XnwWZ1aE-yk&list=PLKjqaxlU8ZH_GMGLJz_0GcTbtj4zlt
 						Devlogs
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+						Build 9: The quest system
+
+Added:
+
+The quest system
+- Prologue
+- Example quests
+
+Loading scene
+New skill slots in the player panel
+
+New monster
+- Fat zombie
+
+Changed:
+
+Town
+- Blacksmith
+- Witch doctor
+
+
+09.11.24
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 						Build 8: New character: Mage
 
 Added:
