@@ -21,6 +21,7 @@ The quest system
 - Example quests
 
 Loading scene
+
 New skill slots in the player panel
 
 New monster
