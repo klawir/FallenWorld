@@ -1,5 +1,7 @@
 Fallen world (symbolic repository)
 
+A Diablo clone (PC) made with Unity3D
+
 Trial presentation:
 
 ![magespoiler-ezgif com-optimize](https://github.com/user-attachments/assets/703c7a19-d6b8-468e-9a99-ae809827354a)
