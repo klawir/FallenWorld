@@ -13,22 +13,20 @@ MonoBehaviour:
   m_Name: Blessed Hammer
   m_EditorClassIdentifier: 
   damage:
-    min: 3
-    max: 4
+    min: 2
+    max: 3
   coolDown: 0.5
   range: 100
   basicData: {fileID: 11400000, guid: e0ca7ada5a024714482a403427d3dda8, type: 2}
-  animationAttackTypeTrigger: 3
+  animationAttackTrigger: 3
   spawnLocalization: 0
   aoeType: 0
-  manaCost: 20
+  manaCost: 15
   hasMainSpell: 1
   effect: {fileID: 8686767354318405902, guid: 0e2545f5bc7371b4e9a8f6e93d9260fb, type: 3}
+  hasCastEffect: 0
+  castEffect: {fileID: 0}
   hasSubSpell: 0
   subSpellAsCreatedAsset: []
-  crowdControlType: 0
-  durationTimeOfParalize: 0
-  durationTimeOfFear: 0
-  durationTimeOfStun: 0
   spawnSfx: {fileID: 8300000, guid: 75cbd18d26f3700488492b14df26334f, type: 3}
-  hitWallSfx: {fileID: 8300000, guid: e9d7ee0e823c54444a46981c58fa3b54, type: 3}
+  hitWallSfx: {fileID: 8300000, guid: 77f6868913236ae41a380f053958c837, type: 3}

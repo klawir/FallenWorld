@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7436a845794ba4a4990cc6dc31996502, type: 3}
-  m_Name: Normal attack
+  m_Name: Melee normal attack
   m_EditorClassIdentifier: 
   damage:
     min: 0
@@ -18,15 +18,13 @@ MonoBehaviour:
   coolDown: 0
   range: 1.5
   basicData: {fileID: 11400000, guid: a787f903fec509c4095c784af5abf7c7, type: 2}
-  animationAttackTypeTrigger: 1
+  animationAttackTrigger: 1
   spawnLocalization: 0
   aoeType: 0
   manaCost: 0
   hasMainSpell: 0
   effect: {fileID: 0}
+  hasCastEffect: 0
+  castEffect: {fileID: 0}
   hasSubSpell: 0
   subSpellAsCreatedAsset: []
-  crowdControlType: 0
-  durationTimeOfParalize: 0
-  durationTimeOfFear: 0
-  durationTimeOfStun: 0

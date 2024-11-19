@@ -13,22 +13,26 @@ MonoBehaviour:
   m_Name: Blessed Shield
   m_EditorClassIdentifier: 
   damage:
-    min: 3
-    max: 4
-  coolDown: 3
+    min: 2
+    max: 6
+  coolDown: 2
   range: 100
   basicData: {fileID: 11400000, guid: 370ff7735aaed554594fdb95be03bdc6, type: 2}
-  animationAttackTypeTrigger: 2
+  animationAttackTrigger: 2
   spawnLocalization: 0
   aoeType: 0
-  manaCost: 15
+  manaCost: 20
   hasMainSpell: 1
   effect: {fileID: 8162623699061535276, guid: ccf34a2f79b42af4fa0f8ef1dc7de28d, type: 3}
+  hasCastEffect: 0
+  castEffect: {fileID: 0}
   hasSubSpell: 1
   subSpellAsCreatedAsset:
-  - {fileID: 11400000, guid: 3d354788453aa8a479c589d8f5fb5775, type: 2}
-  - {fileID: 11400000, guid: a159f1829e9011b499864a775651c103, type: 2}
-  crowdControlType: 0
-  durationTimeOfParalize: 0
-  durationTimeOfFear: 0
-  durationTimeOfStun: 1
+  - subSpellAsCreatedAsset: {fileID: 11400000, guid: 3d354788453aa8a479c589d8f5fb5775, type: 2}
+    durationTime: 0
+  - subSpellAsCreatedAsset: {fileID: 11400000, guid: fc8248d961fd0f843b780d8c6db69fcd, type: 2}
+    durationTime: 1
+  hasShootMomentSfx: 0
+  ShootMomentSfx: {fileID: 0}
+  hasCastOrChannelingSfx: 0
+  castOrChannelingSfx: {fileID: 0}

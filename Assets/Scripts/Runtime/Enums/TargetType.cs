@@ -20,6 +20,7 @@ namespace Game.Enum.Target
         HiddenTreasure,
         Npc,
         ItemBeingDropped,
-        BorderOfLocation
+        BorderOfLocation,
+        FogOfWar
     }
 }

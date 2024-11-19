@@ -18,18 +18,16 @@ MonoBehaviour:
   coolDown: 0
   range: 2
   basicData: {fileID: 11400000, guid: 34198c276d1bd5d47908d31fafe63763, type: 2}
-  animationAttackTypeTrigger: 1
+  animationAttackTrigger: 1
   spawnLocalization: 0
   aoeType: 0
   manaCost: 2
   hasMainSpell: 0
   effect: {fileID: 0}
+  hasCastEffect: 0
+  castEffect: {fileID: 0}
   hasSubSpell: 0
   subSpellAsCreatedAsset: []
-  crowdControlType: 0
-  durationTimeOfParalize: 0
-  durationTimeOfFear: 0
-  durationTimeOfStun: 0
   useSfx: {fileID: 8300000, guid: 34e547aae77fda6459fe6277270ec8ff, type: 3}
   attacksAmount: 3
   bonusToDamage: 0

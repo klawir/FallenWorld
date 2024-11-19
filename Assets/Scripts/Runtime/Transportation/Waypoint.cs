@@ -1,7 +1,7 @@
 ﻿using Game.Runtime.Actor.Hero;
 using Game.Runtime.Audio;
 using Game.Runtime.Saved;
-using Game.Runtime.UI.Window.Transportation;
+using Game.Runtime.UI.GUI.Window.Transportation;
 using System.Text;
 using UnityEngine;
 
@@ -14,51 +14,74 @@ namespace Game.Runtime.Transportation
         [SerializeField] private ParticleSystem[] activateEffect;
         [SerializeField] private AudioSetControler activateSfx;
         [SerializeField] private AudioSetControler teleportSfx;
+        [SerializeField] private UI.HUD.Label.NonCombatActor.Label _label;
 
         internal System.Action OnActivate;
         internal System.Action OnTeleport;
         internal System.Action<Waypoint> OnInteractionWithWaypointArg;
 
         private StringBuilder _stringBuilderForLabel;
+        private ParticleSystem.MainModule _effectMainModule;
+        private SavedDataOfWaypoint _savedData;
         internal bool Activated => activated;
 
         public override void Initialize()
         {
             base.Initialize();
 
-            _stringBuilderForLabel = new StringBuilder();
-            _stringBuilderForLabel.Append(name).AppendLine().Append("Waypoint");
-
             var _selectionMenu = _gameMainManager.SceneHierarchy.WaypointMenu;
             if (activated)
             {
                 Activate();
-                ChangeBechaviourForInteraction(_selectionMenu);
+                changeBechaviourForInteraction(_selectionMenu);
             }
 
             else
             {
-                AwaitingForActivate();
+                awaitingForActivate();
                 OnActivate += ActivateDefaultBechaviourForInteraction;
             }
 
             OnInteractionWithWaypointArg += _selectionMenu.ShowLocations;
             OnInteractionWithWaypointArg += _selectionMenu.UpdateLocationName;
+
             OnTeleport += _selectionMenu.Close;
 
             void ActivateDefaultBechaviourForInteraction()
             {
                 _selectionMenu.AddDiscovered(this);
-                ChangeBechaviourForInteraction(_selectionMenu);
+                changeBechaviourForInteraction(_selectionMenu);
                 OnActivate -= ActivateDefaultBechaviourForInteraction;
             }
+
+            _label.InitializeOwner(transform);
+            _label.Initialization();
+
+            _stringBuilderForLabel = new StringBuilder();
+            _stringBuilderForLabel.Append(name).AppendLine().Append("Waypoint");
+            _label.SetText(_stringBuilderForLabel.ToString());
+            _savedData = new SavedDataOfWaypoint();
+            Debug.Log(name+ " Initialization()");
         }
 
         public override void Select()
         {
-            base.Select();
+            _label.Enable();
+            UpdateLabelPosition();
+            SubscribeLabelToCameraFollow();
+            SelectModel();
+        }
 
-            _globalLabel.SetText(_stringBuilderForLabel.ToString());
+        public override void Deselect()
+        {
+            UnSubscribeLabelFromCameraFollow();
+            DeselectModel();
+            _label.Disable();
+        }
+
+        internal override void UpdateLabelPosition()
+        {
+            _label.UpdatePosition(CalculateToCameraPerspective());
         }
 
         public override void Interaction()
@@ -67,17 +90,15 @@ namespace Game.Runtime.Transportation
             OnInteractionWithWaypointArg?.Invoke(this);
         }
 
-        public override void Teleport(Paladin hero)
+        public override void Teleport(Hero hero)
         {
-            hero.Teleport(this);
+            hero.Warp(this);
             OnTeleport?.Invoke();
             teleportSfx.PlayRandomly();
         }
 
         internal SavedDataOfWaypoint GetStateDataForSaving()
         {
-            SavedDataOfWaypoint _savedData = new SavedDataOfWaypoint();
-
             if (activated)
             {
                 _savedData.Set(ID);
@@ -88,28 +109,27 @@ namespace Game.Runtime.Transportation
 
         internal void LoadSaved()
         {
-            EnablePrewarm();
+            enablePrewarm();
             Activate();
         }
 
-        private void EnablePrewarm()
+        private void enablePrewarm()
         {
-            ParticleSystem.MainModule mainModule;
             for (int i = activateEffect.Length - 1; i >= 0; i--)
             {
-                mainModule = activateEffect[i].main;
-                mainModule.prewarm = true;
+                _effectMainModule = activateEffect[i].main;
+                _effectMainModule.prewarm = true;
             }
         }
 
-        private void AwaitingForActivate()
+        private void awaitingForActivate()
         {
-            OnInteraction += Activate;
+            OnInteract += Activate;
         }
 
-        private void ChangeBechaviourForInteraction(SelectionMenu waypointMenu)
+        private void changeBechaviourForInteraction(SelectionMenu waypointMenu)
         {
-            OnInteraction += waypointMenu.Open;
+            OnInteract += waypointMenu.Open;
         }
 
         private void Activate()
@@ -122,7 +142,7 @@ namespace Game.Runtime.Transportation
             activateSfx.PlayRandomly();
             activated = true;
 
-            OnInteraction -= Activate;
+            OnInteract -= Activate;
             OnActivate?.Invoke();
         }
     }

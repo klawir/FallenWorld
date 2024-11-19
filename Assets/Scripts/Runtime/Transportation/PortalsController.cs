@@ -17,14 +17,14 @@ namespace Game.Runtime.Transportation
             nearHero.Summon();
             inTown.Summon();
 
-            inTown.OnInterract += Close;
+            inTown.OnInteract += Close;
         }
 
         private void Close()
         {
             nearHero.Close();
             inTown.Close();
-            inTown.OnInterract = null;
+            inTown.OnInteract = null;
         }
 
         internal void ClearMouseActions()

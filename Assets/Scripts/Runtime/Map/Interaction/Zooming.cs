@@ -1,22 +1,38 @@
 using Game.Runtime.Management;
+using System;
 
 namespace Game.Runtime.Map.Interaction
 {
     public class Zooming : AbsMapFeatures
     {
-        public System.Action OnZoomIn;
-        public System.Action OnZoomOut;
+        private const float _STEP = 0.1f;
+        private System.Action _onZoomIn;
+        private System.Action _onZoomOut;
 
         private float m_Step;
         private float m_worldCameraOrthographicSize;
 
         private GlobalSettings.MenuOptions.MapSettings _mapSettings;
 
+        public Zooming(PinLocation pinLocation, Scrolling _scrolling)
+        {
+            Initialize();
+            _onZoomIn += pinLocation.IncreaseScaleOfSpawnedCornersByOnePercent;
+            _onZoomIn += _scrolling.DecreaseSpeed;
+            _onZoomIn += _scrolling.updateWorldCameraOrthographicSize;
+            _onZoomIn += _scrolling.restoreWorldCameraPositionWhenWillBeOutOfTheMap;
+
+            _onZoomOut += pinLocation.DecreseScaleOfSpawnedCornersByOnePercent;
+            _onZoomOut += _scrolling.IncreaseSpeed;
+            _onZoomOut += _scrolling.updateWorldCameraOrthographicSize;
+            _onZoomOut += _scrolling.restoreWorldCameraPositionWhenWillBeOutOfTheMap;
+        }
+
         public override void Initialize()
         {
             base.Initialize();
 
-            _mapSettings = GlobalReferences.Map.MapSettings;
+            _mapSettings = GlobalReferences.GetMapControler.MapSettings;
             updateWorldCameraOrthographicSize();
         }
 
@@ -27,7 +43,7 @@ namespace Game.Runtime.Map.Interaction
                 calculateStep();
                 stepIn();
 
-                OnZoomIn?.Invoke();
+                _onZoomIn?.Invoke();
                 updateWorldCameraOrthographicSize();
             }
 
@@ -36,7 +52,7 @@ namespace Game.Runtime.Map.Interaction
                 calculateStep();
                 stepOut();
 
-                OnZoomOut?.Invoke();
+                _onZoomOut?.Invoke();
                 updateWorldCameraOrthographicSize();
             }
         }
@@ -68,7 +84,7 @@ namespace Game.Runtime.Map.Interaction
 
         private void calculateStep()
         {
-            m_Step = 0.1f * _mapSettings.ZoomSpeed;
+            m_Step = _STEP * _mapSettings.ZoomSpeed;
         }
 
         private void stepIn()
@@ -79,6 +95,16 @@ namespace Game.Runtime.Map.Interaction
         private void stepOut()
         {
             _worldCamera.orthographicSize += m_Step;
+        }
+
+        internal void AttachToZoomIn(Action method)
+        {
+            _onZoomIn += method;
+        }
+
+        internal void AttachToZoomOut(Action method)
+        {
+            _onZoomOut += method;
         }
     }
 }

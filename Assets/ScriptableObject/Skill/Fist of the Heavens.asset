@@ -13,22 +13,26 @@ MonoBehaviour:
   m_Name: Fist of the Heavens
   m_EditorClassIdentifier: 
   damage:
-    min: 5
+    min: 6
     max: 10
-  coolDown: 2
+  coolDown: 6
   range: 100
   basicData: {fileID: 11400000, guid: 4fd3222a5a1d94d44bd0b50d02442127, type: 2}
-  animationAttackTypeTrigger: 3
+  animationAttackTrigger: 3
   spawnLocalization: 2
   aoeType: 0
   manaCost: 30
   hasMainSpell: 1
   effect: {fileID: 6436231808602417493, guid: a8a2f2552ecaffa409acfac1ccf173af, type: 3}
+  hasCastEffect: 0
+  castEffect: {fileID: 0}
   hasSubSpell: 1
   subSpellAsCreatedAsset:
-  - {fileID: 11400000, guid: 26ec4fc614a7e5540863c22fb78bd32b, type: 2}
-  - {fileID: 11400000, guid: 766d1730e52a28549bc258c19f63b134, type: 2}
-  crowdControlType: 0
-  durationTimeOfParalize: 0
-  durationTimeOfFear: 0
-  durationTimeOfStun: 0
+  - subSpellAsCreatedAsset: {fileID: 11400000, guid: 766d1730e52a28549bc258c19f63b134, type: 2}
+    durationTime: 0
+  - subSpellAsCreatedAsset: {fileID: 11400000, guid: 67062ba24350dc948978f26cf42027a0, type: 2}
+    durationTime: 1.5
+  hasShootMomentSfx: 0
+  ShootMomentSfx: {fileID: 0}
+  hasCastOrChannelingSfx: 0
+  castOrChannelingSfx: {fileID: 0}
