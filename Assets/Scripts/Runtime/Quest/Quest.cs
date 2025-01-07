@@ -1,4 +1,8 @@
-﻿
+﻿using Game.Runtime.Enums;
+using Game.Runtime.Enums.Quest;
+using Game.Runtime.Quest.ScriptableObjectDefinition;
+using Game.Runtime.Sprites;
+
 namespace Game.Runtime.Quest
 {
     public class Quest
@@ -8,6 +12,7 @@ namespace Game.Runtime.Quest
         public string GetDescribe { get; private set; }
         public SpriteState GetIcons { get; private set; }
         public QuestGoalType GetGoalType { get; private set; }
+        public int GetMonsterID { get; private set; }
         public QuestStateType GetState { get; private set; }
         public Location GetLocation { get; private set; }
         public Reward GetReward { get; private set; }
@@ -19,6 +24,7 @@ namespace Game.Runtime.Quest
             GetDescribe = questData.GetDescribe;
             GetIcons = questData.GetImages;
             GetGoalType = questData.GetGoalType;
+            GetMonsterID = questData.GetMonsterID;
             GetState = QuestStateType.Deactivated;
             GetLocation = questData.GetLocation;
             GetReward = questData.GetReward;

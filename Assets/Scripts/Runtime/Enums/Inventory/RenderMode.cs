@@ -6,6 +6,7 @@ namespace Game.Enum.UI.Grids
         None = 0,
         Inventory,
         Equipment,
-        Trading
+        Trading,
+        Stash
     }
 }

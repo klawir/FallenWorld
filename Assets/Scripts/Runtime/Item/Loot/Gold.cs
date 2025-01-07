@@ -5,13 +5,13 @@ using UnityEngine;
 
 namespace Game.Runtime.Item.Loot
 {
-    public class Gold : Loot
+    public class Gold : Loot, IAdditionalLoot
     {
         [Zenject.Inject]
-        private FloatingText._factory _factory;
+        private FloatingText.Factory factory;
 
-        [SerializeField] private Game.Runtime.Audio.AudioSetControler _pickUpSfx;
-        [SerializeField] private ParticleSystem _dropEffect;
+        [SerializeField] private Game.Runtime.Audio.AudioSetControler pickUpSfx;
+        [SerializeField] private ParticleSystem dropEffect;
         [SerializeField] private GameObject _additionaLootModel;
 
         [SerializeField] private Light _highlight;
@@ -29,7 +29,7 @@ namespace Game.Runtime.Item.Loot
             if (_isThisDroppedLoot)
             {
                 HasFellOnTheGround(); 
-                __dropEffect.OnHitTheGround();
+                _dropEffect.OnHitTheGround();
             }
 
             if (m_interactionTrying)
@@ -52,8 +52,8 @@ namespace Game.Runtime.Item.Loot
 
         internal override void Drop()
         {
-            _spawnedEffect = Instantiate(_dropEffect);
-            __dropEffect.LoadItemDefinitionForGold(this, _spawnedEffect);
+            _spawnedEffect = Instantiate(dropEffect);
+            _dropEffect.LoadItemDefinitionForAdditionalLoot(this, _spawnedEffect);
             IsFallingToTheGround = true;
         }
 
@@ -76,13 +76,15 @@ namespace Game.Runtime.Item.Loot
 
         public override void ComeToMe()
         {
-            _playerManager.UpdateTarget(transform.localPosition);
+            _playerControler.UpdateTarget(transform.localPosition);
         }
 
         public override void Interaction()
         {
             if (IsSpawned)
             {
+                Debug.Log(name+ " Interaction()");
+
                 StartCoroutine(disableGameObject());
             }
 
@@ -92,16 +94,15 @@ namespace Game.Runtime.Item.Loot
         private IEnumerator disableGameObject()
         {
             CreateFloatingText();
-            _playerManager.AddGold(Value);
-            unSubscribeHotKeyAltPressing();
-            _pickUpSfx.PlayRandomly();
+            _playerControler.AddGold(Value);
+            UnSubscribeHotKeyAltPressing();
+            pickUpSfx.PlayRandomly();
             _globalLootManager.ClearStack(labelToReact);
-
             DisableLocalCollider();
             DisableGraphic();
             DeactivateLabels();
 
-            while (_pickUpSfx.IsPlaying)
+            while (pickUpSfx.IsPlaying)
             {
                 yield return null;
             }
@@ -117,7 +118,7 @@ namespace Game.Runtime.Item.Loot
         internal override void Reactivate()
         {
             DisableGraphic();
-            __dropEffect.RandomHeightStartPosition();
+            _dropEffect.RandomHeightStartPosition();
             ThrowUp();
             singleLabel.ActiveGameObject();
             labelToReact.Active();
@@ -126,21 +127,23 @@ namespace Game.Runtime.Item.Loot
 
             m_interactionTrying = false;
             IsSpawned = false;
-            _pickedUp = false;
+            EndOfLifetime = false;
             _highlight.intensity = _normal;
+
+            Debug.Log(tag);
         }
 
         protected override void Destroy()
         {
             GlobalReferences.GetObjectPool.ToPool(this);
             gameObject.SetActive(false);
-            _pickedUp = true;
+            EndOfLifetime = true;
             SetTagToCreated();
         }
 
         private void CreateFloatingText()
         {
-            FloatingText gettingEffect = _factory.Create();
+            FloatingText gettingEffect = factory.Create();
 
             gettingEffect.Initialize(singleLabel, Color.yellow);
             gettingEffect.Play();

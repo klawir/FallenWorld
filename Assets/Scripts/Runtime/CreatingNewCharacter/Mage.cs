@@ -5,41 +5,41 @@ namespace Game.Runtime.CreatingNewCharacter
 {
     public class Mage : CharacterToCreate
     {
-        [SerializeField] private ParticleSystem[] _casting;
-        [SerializeField] private Game.Runtime.Audio.AudioSetControler _castingSfx;
+        [SerializeField] private ParticleSystem[] casting;
+        [SerializeField] private Game.Runtime.Audio.AudioSetControler castingSfx;
 
         internal override void ReturnToIdle()
         {
             base.ReturnToIdle();
 
-            stop_castingFX();
-            _castingSfx.Stop();
+            stopCastingFX();
+            castingSfx.Stop();
         }
 
         internal override void StopPlayAudio()
         {
-            _castingSfx.Stop();
+            castingSfx.Stop();
         }
 
-        public void _casting()
+        public void Casting()
         {
-            start_castingFX();
-            _castingSfx.PlayRandomly();
+            startCastingFX();
+            castingSfx.PlayRandomly();
         }
 
-        private void start_castingFX()
+        private void startCastingFX()
         {
-            for (int i = _casting.Length - 1; i >= 0; i--)
+            for (int i = casting.Length - 1; i >= 0; i--)
             {
-                _casting[i].Play();
+                casting[i].Play();
             }
         }
 
-        private void stop_castingFX()
+        private void stopCastingFX()
         {
-            for (int i = _casting.Length - 1; i >= 0; i--)
+            for (int i = casting.Length - 1; i >= 0; i--)
             {
-                _casting[i].Stop();
+                casting[i].Stop();
             }
         }
     }

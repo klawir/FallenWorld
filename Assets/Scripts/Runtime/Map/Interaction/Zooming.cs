@@ -74,12 +74,12 @@ namespace Game.Runtime.Map.Interaction
 
         private bool isMouseScrollWhellMovingIn()
         {
-            return _mouseControler.isMouseScrollWhellMovingIn();
+            return _mouseControler.IsMouseScrollWhellMovingIn();
         }
 
         private bool isMouseScrollWhellMovingOut()
         {
-            return _mouseControler.isMouseScrollWhellMovingOut();
+            return _mouseControler.IsMouseScrollWhellMovingOut();
         }
 
         private void calculateStep()

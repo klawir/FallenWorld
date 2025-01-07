@@ -90,7 +90,7 @@ namespace Game.Runtime.Transportation
             OnInteractionWithWaypointArg?.Invoke(this);
         }
 
-        public override void Teleport(Hero hero)
+        public override void Teleport(Character hero)
         {
             hero.Warp(this);
             OnTeleport?.Invoke();
