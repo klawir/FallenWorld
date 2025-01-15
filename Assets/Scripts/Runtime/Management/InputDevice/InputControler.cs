@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 namespace Game.Runtime.Management.InputDevice
 {
-    public class InputControlerCatcher: MonoBehaviour
+    public class InputControler: MonoBehaviour
     {
         [SerializeField] private Mouse.MouseControler mouse;
         [SerializeField] private Keyboard keyboard;
@@ -13,7 +13,7 @@ namespace Game.Runtime.Management.InputDevice
         internal Mouse.MouseControler Mouse => mouse;
         internal Keyboard Keyboard => keyboard;
 
-        internal void Construct(GameMainManager gameMainManager)
+        internal void Construct(GameCreator gameMainManager)
         {
             mouse.Construct(gameMainManager);
             keyboard.Construct(gameMainManager);
@@ -48,6 +48,15 @@ namespace Game.Runtime.Management.InputDevice
 
         #endregion
 
+        public void EnableMouseEvents()
+        {
+            mouse.InitializeLeftButton();
+        }
+
+        public void DisableMouseEvents()
+        {
+            mouse.ButtonLeftDetachActions();
+        }
 
         internal void DisableInput()
         {

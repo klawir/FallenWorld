@@ -17,12 +17,12 @@ namespace Game.Runtime.Map.Interaction
         public Zooming(PinLocation pinLocation, Scrolling _scrolling)
         {
             Initialize();
-            _onZoomIn += pinLocation.IncreaseScaleOfSpawnedCornersByOnePercent;
+            _onZoomIn += pinLocation.IncreaseScaleOfSpawnedCorners;
             _onZoomIn += _scrolling.DecreaseSpeed;
             _onZoomIn += _scrolling.updateWorldCameraOrthographicSize;
             _onZoomIn += _scrolling.restoreWorldCameraPositionWhenWillBeOutOfTheMap;
 
-            _onZoomOut += pinLocation.DecreseScaleOfSpawnedCornersByOnePercent;
+            _onZoomOut += pinLocation.DecreseScaleOfSpawnedCorners;
             _onZoomOut += _scrolling.IncreaseSpeed;
             _onZoomOut += _scrolling.updateWorldCameraOrthographicSize;
             _onZoomOut += _scrolling.restoreWorldCameraPositionWhenWillBeOutOfTheMap;

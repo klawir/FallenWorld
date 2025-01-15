@@ -1,15 +1,13 @@
 using Game.Runtime.Management;
-using Game.Runtime.UI.HUD;
+using Game.Runtime.Utility;
 using System.Collections;
+using System.Text;
 using UnityEngine;
 
 namespace Game.Runtime.Item.Loot
 {
     public class Gold : Loot, IAdditionalLoot
     {
-        [Zenject.Inject]
-        private FloatingText.Factory factory;
-
         [SerializeField] private Game.Runtime.Audio.AudioSetControler pickUpSfx;
         [SerializeField] private ParticleSystem dropEffect;
         [SerializeField] private GameObject _additionaLootModel;
@@ -85,15 +83,20 @@ namespace Game.Runtime.Item.Loot
             {
                 Debug.Log(name+ " Interaction()");
 
-                StartCoroutine(disableGameObject());
+                StartCoroutine(DisableGameObject());
             }
 
             m_interactionTrying = true;
         }
         
-        private IEnumerator disableGameObject()
+        private IEnumerator DisableGameObject()
         {
-            CreateFloatingText();
+            GlobalReferences.UIControler.CreateFloatingText(
+                StringUtility.BuildString(Value.ToString(), " gold"),
+                transform,
+                UI.FloatingTextType.MoveY,
+                Color.yellow);
+
             _playerControler.AddGold(Value);
             UnSubscribeHotKeyAltPressing();
             pickUpSfx.PlayRandomly();
@@ -139,14 +142,6 @@ namespace Game.Runtime.Item.Loot
             gameObject.SetActive(false);
             EndOfLifetime = true;
             SetTagToCreated();
-        }
-
-        private void CreateFloatingText()
-        {
-            FloatingText gettingEffect = factory.Create();
-
-            gettingEffect.Initialize(singleLabel, Color.yellow);
-            gettingEffect.Play();
         }
 
         internal void SetValue(int value)
