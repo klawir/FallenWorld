@@ -2,14 +2,12 @@ Fallen world (symbolic repository)
 
 A Diablo clone (PC) made with Unity3D
 
+Full presentation: https://rb.gy/eeta30
+
 Trial presentation:
 
 ![magespoiler-ezgif com-optimize](https://github.com/user-attachments/assets/703c7a19-d6b8-468e-9a99-ae809827354a)
 ![paladinspoiler-ezgif com-optimize](https://github.com/user-attachments/assets/229edba5-a9a2-433c-8f6c-e490df35e192)
-
-
-Full presentation:
-https://www.youtube.com/watch?v=GEcae4o1z3Y&list=PLKjqaxlU8ZH_GMGLJz_0GcTbtj4zltgyu&ab_channel=Pawe%C5%82.M
 
 						Devlogs
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
