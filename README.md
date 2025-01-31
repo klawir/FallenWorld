@@ -1,156 +1,144 @@
-Fallen world (symbolic repository)
+# Fallen world (symbolic repository)
 
-A Diablo clone (PC) made with Unity3D
+## A Diablo clone (PC) made with Unity3D
 
-Full presentation: https://rb.gy/eeta30
+### My job mainly involved programming the gameplay:
+
+* Combat
+* Detecting
+* Health and Mana System
+* Skill & Skill Tree System / Cool Down
+* Stash System (Store Items)
+* Minimap
+* Level & Experience Progression
+* Stats
+  - Damage Based on stats
+* Loot
+* Quest System & Rewards
+* Trade
+* Waypoints & Portals (Fast Travel)
+* Interaction
+* Visualization Equipment on the character
+* UI
+  - Tooltip
+  - Inventory & Equipment System (UI) I reprogramed it for me needed
+
+### Design
+
+* Main map
+* Creating and loading a character
+
+### Assets
+
+* Save & Load
+* Inventory & Equipment System (UI) as basic version
+* Graphics and Sounds
+* Navigation
+* Enemy AI
+
+## Full presentation: https://rb.gy/eeta30
 
 Trial presentation:
 
 ![magespoiler-ezgif com-optimize](https://github.com/user-attachments/assets/703c7a19-d6b8-468e-9a99-ae809827354a)
 ![paladinspoiler-ezgif com-optimize](https://github.com/user-attachments/assets/229edba5-a9a2-433c-8f6c-e490df35e192)
 
-						Devlogs
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Devlog
+## Build 9: The quest system 
+## 09.11.24
+### Added:
 
-						Build 9: The quest system
+* The quest system
+  - Prologue
+  - Example quests
+* Loading scene
+* New skill slots in the player panel
+* New monster
+  - Fat zombie
 
-Added:
+### Changed:
 
-The quest system
-- Prologue
-- Example quests
+* Town
+  - Blacksmith
+  - Witch doctor
 
-Loading scene
+## Build 8: New character: Mage
+## 28.07.24
+### Added:
 
-New skill slots in the player panel
+* New character
+  - Mage
 
-New monster
-- Fat zombie
+### Changed:
 
-Changed:
+* Save system
+  - Separated saving for each character
+  - Separated loading with propose to pick
 
-Town
-- Blacksmith
-- Witch doctor
+## Build 7: The map 
+## 27.04.24
+### Added:
 
+* The map window
+* The minimap
+* An example small map
+* New monsters
+  - Zombie
+  - Pit Fiend
 
-09.11.24
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Build 6: The transportaton system 
+## 31.12.23
+### Added:
 
-						Build 8: New character: Mage
+* Portal
+* Waypoints
 
-Added:
+## Build 5: The skill system 
+## 09.10.23
+### Added:
 
-New character
-- Mage
+* Skill tree
+* Skills:
+  - Fist of Heavens, Blessed shield, Blessed hammer, Zeal, Might
+* Monsters:
+  - Skeletons and Undead warriors
+* Mana potions
 
-Changed:
+## Build 4: Trade system 
+## 29.09.22
+### Added:
 
-Save system
-- Separated saving for each character
-- Separated loading with propose to pick
+* Small village
+* Vendors:
+  - Blacksmith
+  - Witch
+* Healing potions
 
+## Build 3: Loot 
+## 15.06.22
+### Added:
 
-28.07.24
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+* Example loot
+* Treasure chests
 
-						Build 7: The map
+## Build 2: Inventory and equipment 
+## 07.02.22
+### Added:
 
-Added:
+* Inventory
+* Equipment
+* Save system
+* Example items
+* Main menu scene
 
-The map window
+### Changed:
 
-The minimap
+* Hero model
 
-An example small map
+## Build 1 
+## 06.11.21
+### Added:
 
-New monsters
-- Zombie
-- Pit Fiend
-
-27.04.24
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-						Build 6: The transportaton system
-
-Added:
-
-Portal
-Waypoints
-
-31.12.23
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-						Build 5: The skill system
-
-Added:
-
-Skill tree
-
-Skills:
-Fist of Heavens, Blessed shield, Blessed hammer, Zeal, Might
-
-Monsters:
-Skeletons and Undead warriors
-
-Mana potions
-
-09.10.23
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-						Build 4: Trade system
-
-Added:
-
-Small village
-
-Vendors:
-Blacksmith
-Witch
-
-Healing potions
-
-29.09.22
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-						Build 3: Loot
-
-Added:
-
-Example loot
-
-Treasure chests
-
-15.06.22
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-						Build 2: Inventory and equipment
-	
-Added:
-
-Inventory
-
-Equipment
-
-Save system
-
-Example items
-
-Main menu scene
-
-Changed:
-
-Hero model
-
-07.02.22
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-						Build 1
-
-Added:
-
-Navigation
-Combat
-HUD
-
-06.11.21
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+* Navigation
+* Combat
+* HUD
