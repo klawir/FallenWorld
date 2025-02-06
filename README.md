@@ -6,33 +6,36 @@
 
 * Combat
 * Detecting
-* Health and Mana System
-* Skill & Skill Tree System / Cool Down
-* Stash System (Store Items)
+* Health and mana
+* Skill & skill tree / cool down
+* Stash (store items)
 * Minimap
-* Level & Experience Progression
+* Level & experience progression
 * Stats
-  - Damage Based on stats
+  - Damage based on stats
+  - Conversion to other bonus
 * Loot
-* Quest System & Rewards
+* Quest & rewards
 * Trade
-* Waypoints & Portals (Fast Travel)
+* Waypoints & portals (fast travel)
 * Interaction
-* Visualization Equipment on the character
+* Visualization equipment on the character
 * UI
   - Tooltip
-  - Inventory & Equipment System (UI) I reprogramed it for me needed
+  - Inventory & equipment (UI) I reprogramed it for my needed
+  - Pasue menu
+  - Main menu
 
 ### Design
 
 * Main map
-* Creating and loading a character
+* Creating and loading a character map
 
 ### Assets
 
 * Save & Load
-* Inventory & Equipment System (UI) as basic version
-* Graphics and Sounds
+* Inventory & equipment (UI) as basic version
+* Graphics and sounds
 * Navigation
 * Enemy AI
 
@@ -42,7 +45,7 @@ Trial presentation:
 
 ![magespoiler-ezgif com-optimize](https://github.com/user-attachments/assets/703c7a19-d6b8-468e-9a99-ae809827354a)
 ![paladinspoiler-ezgif com-optimize](https://github.com/user-attachments/assets/229edba5-a9a2-433c-8f6c-e490df35e192)
-
+e
 # Devlog
 ## Build 9: The quest system 
 ## 09.11.24
