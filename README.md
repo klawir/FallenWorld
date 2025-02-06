@@ -45,7 +45,7 @@ Trial presentation:
 
 ![magespoiler-ezgif com-optimize](https://github.com/user-attachments/assets/703c7a19-d6b8-468e-9a99-ae809827354a)
 ![paladinspoiler-ezgif com-optimize](https://github.com/user-attachments/assets/229edba5-a9a2-433c-8f6c-e490df35e192)
-e
+
 # Devlog
 ## Build 9: The quest system 
 ## 09.11.24
