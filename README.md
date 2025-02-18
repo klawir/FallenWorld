@@ -2,7 +2,10 @@
 
 ## A Diablo clone (PC) made with Unity3D
 
-### My job mainly involved programming the gameplay:
+<br>
+
+> [!IMPORTANT]
+> ### My job mainly involved programming the gameplay:
 
 * Combat
 * Detecting
@@ -22,7 +25,7 @@
 * Visualization equipment on the character
 * UI
   - Tooltip
-  - Inventory & equipment (UI) I reprogramed it for my needed
+  - **Inventory & equipment (UI) I reprogramed it for my needed**
   - Pasue menu
   - Main menu
 
@@ -30,14 +33,19 @@
 
 * Main map
 * Creating and loading a character map
+  
+<br>
 
-### Assets
+> [!WARNING]
+> ### Used assets
 
 * Save & Load
-* Inventory & equipment (UI) as basic version
+* **Inventory & equipment (UI) as basic version**
 * Graphics and sounds
 * Navigation
 * Enemy AI
+
+<br>
 
 ## Full presentation: https://rb.gy/eeta30
 
