@@ -5,7 +5,8 @@ namespace Game.Runtime.Actor.Hero
     [System.Serializable]
     public class Experience : StorageForValue
     {
-        private const float _MULTIPLIER_PER_LEVEL = 0.2f;
+        [UnityEngine.SerializeField] private Game.Runtime.GlobalSettings.ScriptableObjectDefinition.Character _characterGlobalSettings;
+        private float _multipierPerLevel;
         private int _bank;
 
         public Action OnLeveLUp;
@@ -15,7 +16,8 @@ namespace Game.Runtime.Actor.Hero
         public override void Initialize()
         {
             base.Initialize();
-            initializeDefaultLevel();
+            InitializeDefaultLevel();
+            _multipierPerLevel = _characterGlobalSettings.MultipierPerLevel;
         }
 
         public override void AddToCurrent(float value)
@@ -24,36 +26,36 @@ namespace Game.Runtime.Actor.Hero
 
             if (IsFull)
             {
-                newLevel();
-                calculateBank();
-                resetCurrentValue();
-                calculateNewTotalValue();
-                addTheRestBank();
+                NewLevel();
+                CalculateBank();
+                ResetCurrentValue();
+                CalculateNewTotalValue();
+                AddTheRestBank();
                 OnLeveLUp?.Invoke();
             }
         }
 
-        private void addTheRestBank()
+        private void AddTheRestBank()
         {
             AddToCurrent(_bank);
         }
 
-        private void calculateNewTotalValue()
+        private void CalculateNewTotalValue()
         {
-            total += total * _MULTIPLIER_PER_LEVEL;
+            total += total * _multipierPerLevel;
         }
 
-        private void resetCurrentValue()
+        private void ResetCurrentValue()
         {
             current = 0f;
         }
 
-        private void calculateBank()
+        private void CalculateBank()
         {
             _bank = (int)(current - total);
         }
 
-        private void newLevel()
+        private void NewLevel()
         {
             GetLeveL++;
         }
@@ -63,7 +65,7 @@ namespace Game.Runtime.Actor.Hero
             GetLeveL = level;
         }
 
-        private void initializeDefaultLevel()
+        private void InitializeDefaultLevel()
         {
             GetLeveL = 1;
         }

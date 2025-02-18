@@ -12,7 +12,7 @@ namespace Game.Runtime.CreatingNewCharacter
         {
             base.ReturnToIdle();
 
-            stopCastingFX();
+            StopCastingFX();
             castingSfx.Stop();
         }
 
@@ -23,11 +23,11 @@ namespace Game.Runtime.CreatingNewCharacter
 
         public void Casting()
         {
-            startCastingFX();
+            StartCastingFX();
             castingSfx.PlayRandomly();
         }
 
-        private void startCastingFX()
+        private void StartCastingFX()
         {
             for (int i = casting.Length - 1; i >= 0; i--)
             {
@@ -35,7 +35,7 @@ namespace Game.Runtime.CreatingNewCharacter
             }
         }
 
-        private void stopCastingFX()
+        private void StopCastingFX()
         {
             for (int i = casting.Length - 1; i >= 0; i--)
             {

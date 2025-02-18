@@ -3,6 +3,9 @@ using UnityEngine.InputSystem;
 
 namespace Game.Runtime.Management.InputDevice
 {
+    /// <summary>
+    /// Catcher of signals from new input system
+    /// </summary>
     public class InputControler: MonoBehaviour
     {
         [SerializeField] private Mouse.MouseControler mouse;
@@ -21,9 +24,25 @@ namespace Game.Runtime.Management.InputDevice
         }
 
         #region hero
+        
+        public void OnSkill1KeyDown()
+        {
+            GlobalReferences.UIControler.SelectSkill(Enums.SkillSlotType.Alpha1);
+        }
+
         public void OnSkill1()
         {
             keyboard.OnClickSkill1?.Invoke();
+        }
+
+        public void OnSkill1KeyUp()
+        {
+            GlobalReferences.UIControler.DeselectSkill(Enums.SkillSlotType.Alpha1);
+        }
+
+        public void OnSkill2KeyDown()
+        {
+            GlobalReferences.UIControler.SelectSkill(Enums.SkillSlotType.Alpha2);
         }
 
         public void OnSkill2()
@@ -31,21 +50,60 @@ namespace Game.Runtime.Management.InputDevice
             keyboard.OnClickSkill2?.Invoke();
         }
 
+        public void OnSkill2KeyUp()
+        {
+            GlobalReferences.UIControler.DeselectSkill(Enums.SkillSlotType.Alpha2);
+        }
+
+        public void OnSkill3KeyDown()
+        {
+            GlobalReferences.UIControler.SelectSkill(Enums.SkillSlotType.Alpha3);
+        }
+
         public void OnSkill3()
         {
             keyboard.OnClickSkill3?.Invoke();
         }
 
-        public void OnClickLeftMouseOnlyForSkill()
+        public void OnSkill3KeyUp()
+        {
+            GlobalReferences.UIControler.DeselectSkill(Enums.SkillSlotType.Alpha3);
+        }
+
+        public void OnLeftMouse()
         {
             mouse.OnClickLeftMouseOnlyForSkill();
         }
 
-        public void OnClickRightMouseOnlyForSkill()
+        public void OnRightMouseDown()
+        {
+
+        }
+
+        public void OnRightMouse()
+        {
+
+        }
+
+        public void OnRightMouseUp()
+        {
+
+        }
+
+        public void OnRightMouseDownForSkill()
+        {
+            GlobalReferences.UIControler.SelectSkill(Enums.SkillSlotType.RightMouse);
+        }
+
+        public void OnRightMouseForSkill()
         {
             mouse.OnClickRightMouseOnlyForSkill();
         }
 
+        public void OnRightMouseUpForSkill()
+        {
+            GlobalReferences.UIControler.DeselectSkill(Enums.SkillSlotType.RightMouse);
+        }
         #endregion
 
         public void EnableMouseEvents()

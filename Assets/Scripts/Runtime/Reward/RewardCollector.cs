@@ -5,10 +5,7 @@ namespace Game.Runtime.Reward
     [System.Serializable]
     public struct RewardCollector
     {
-        [SerializeField] private LootTable lootTable;
-        [SerializeField] private int experience;
-
-        public LootTable LootTable => lootTable;
-        public int Experience => experience;
+        [field: SerializeField] public LootTable LootTable { get; private set; }
+        [field: SerializeField] public int Experience { get; private set; }
     }
 }

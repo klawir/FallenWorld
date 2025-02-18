@@ -1,7 +1,6 @@
 using Game.Runtime.Management;
 using Game.Runtime.Utility;
 using System.Collections;
-using System.Text;
 using UnityEngine;
 
 namespace Game.Runtime.Item.Loot
@@ -38,6 +37,11 @@ namespace Game.Runtime.Item.Loot
             }
         }
 
+        protected override void ReactionForInteraction()
+        {
+            GlobalReferences.CharacterControler.AddGold(Value);
+        }
+
         protected override void EnableGraphic()
         {
             _additionaLootModel.SetActive(true);
@@ -72,17 +76,12 @@ namespace Game.Runtime.Item.Loot
             _highlight.intensity = _normal;
         }
 
-        public override void ComeToMe()
-        {
-            _playerControler.UpdateTarget(transform.localPosition);
-        }
-
         public override void Interaction()
         {
             if (IsSpawned)
             {
                 Debug.Log(name+ " Interaction()");
-
+                OnInteract?.Invoke();
                 StartCoroutine(DisableGameObject());
             }
 
@@ -97,10 +96,8 @@ namespace Game.Runtime.Item.Loot
                 UI.FloatingTextType.MoveY,
                 Color.yellow);
 
-            _playerControler.AddGold(Value);
             UnSubscribeHotKeyAltPressing();
             pickUpSfx.PlayRandomly();
-            _globalLootManager.ClearStack(labelToReact);
             DisableLocalCollider();
             DisableGraphic();
             DeactivateLabels();
@@ -115,10 +112,10 @@ namespace Game.Runtime.Item.Loot
 
         internal override void HasFellOnTheGround()
         {
-            hitTheGround();
+            HitTheGround();
         }
 
-        internal override void Reactivate()
+        internal override void ReactivateFromObjectPool()
         {
             DisableGraphic();
             _dropEffect.RandomHeightStartPosition();

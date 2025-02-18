@@ -1,5 +1,6 @@
 using Game.Runtime.Management;
 using System;
+using UnityEngine;
 
 namespace Game.Runtime.Map.Interaction
 {
@@ -13,86 +14,88 @@ namespace Game.Runtime.Map.Interaction
         private float m_worldCameraOrthographicSize;
 
         private GlobalSettings.MenuOptions.MapSettings _mapSettings;
+        private Camera _worldCamera;
 
         public Zooming(PinLocation pinLocation, Scrolling _scrolling)
         {
             Initialize();
             _onZoomIn += pinLocation.IncreaseScaleOfSpawnedCorners;
             _onZoomIn += _scrolling.DecreaseSpeed;
-            _onZoomIn += _scrolling.updateWorldCameraOrthographicSize;
-            _onZoomIn += _scrolling.restoreWorldCameraPositionWhenWillBeOutOfTheMap;
+            _onZoomIn += _scrolling.UpdateWorldCameraOrthographicSize;
+            _onZoomIn += _scrolling.RestoreWorldCameraPositionWhenWillBeOutOfTheMap;
 
             _onZoomOut += pinLocation.DecreseScaleOfSpawnedCorners;
             _onZoomOut += _scrolling.IncreaseSpeed;
-            _onZoomOut += _scrolling.updateWorldCameraOrthographicSize;
-            _onZoomOut += _scrolling.restoreWorldCameraPositionWhenWillBeOutOfTheMap;
+            _onZoomOut += _scrolling.UpdateWorldCameraOrthographicSize;
+            _onZoomOut += _scrolling.RestoreWorldCameraPositionWhenWillBeOutOfTheMap;
         }
 
         public override void Initialize()
         {
             base.Initialize();
 
+            _worldCamera = GlobalReferences.CameraCollection.World;
             _mapSettings = GlobalReferences.GetMapControler.MapSettings;
-            updateWorldCameraOrthographicSize();
+            UpdateWorldCameraOrthographicSize();
         }
 
         public override void Execute()
         {
-            if (isMouseScrollWhellMovingIn() && canCameraZoomIn())
+            if (IsMouseScrollWhellMovingIn() && CanCameraZoomIn())
             {
-                calculateStep();
-                stepIn();
+                CalculateStep();
+                StepIn();
 
                 _onZoomIn?.Invoke();
-                updateWorldCameraOrthographicSize();
+                UpdateWorldCameraOrthographicSize();
             }
 
-            if (isMouseScrollWhellMovingOut() && canCameraZoomOut())
+            if (IsMouseScrollWhellMovingOut() && CanCameraZoomOut())
             {
-                calculateStep();
-                stepOut();
+                CalculateStep();
+                StepOut();
 
                 _onZoomOut?.Invoke();
-                updateWorldCameraOrthographicSize();
+                UpdateWorldCameraOrthographicSize();
             }
         }
 
-        private void updateWorldCameraOrthographicSize()
+        private void UpdateWorldCameraOrthographicSize()
         {
             m_worldCameraOrthographicSize = _worldCamera.orthographicSize;
         }
 
-        private bool canCameraZoomIn()
+        private bool CanCameraZoomIn()
         {
             return m_worldCameraOrthographicSize > _mapSettings.ZoomLimitMin;
         }
 
-        private bool canCameraZoomOut()
+        private bool CanCameraZoomOut()
         {
             return m_worldCameraOrthographicSize < _mapSettings.ZoomLimitMax;
         }
 
-        private bool isMouseScrollWhellMovingIn()
+        private bool IsMouseScrollWhellMovingIn()
         {
-            return _mouseControler.IsMouseScrollWhellMovingIn();
+            return GlobalReferences.InputControler.Mouse.IsMouseScrollWhellMovingIn();
         }
 
-        private bool isMouseScrollWhellMovingOut()
+        private bool IsMouseScrollWhellMovingOut()
         {
-            return _mouseControler.IsMouseScrollWhellMovingOut();
+            return GlobalReferences.InputControler.Mouse.IsMouseScrollWhellMovingOut();
         }
 
-        private void calculateStep()
+        private void CalculateStep()
         {
             m_Step = _STEP * _mapSettings.ZoomSpeed;
         }
 
-        private void stepIn()
+        private void StepIn()
         {
             _worldCamera.orthographicSize -= m_Step;
         }
 
-        private void stepOut()
+        private void StepOut()
         {
             _worldCamera.orthographicSize += m_Step;
         }

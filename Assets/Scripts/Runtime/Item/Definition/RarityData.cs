@@ -8,6 +8,9 @@ namespace Game.Runtime.Item.Definition
     {
         public Rarity Rarity;
         public UnityEngine.Sprite Sprite;
+        /// <summary>
+        /// Standard trying to assign a default color to labels and tooltip are buged in the engine. This variable fixing problem with displaing the correct color for label.
+        /// </summary>
         public Material colorMaterial;
     }
 }

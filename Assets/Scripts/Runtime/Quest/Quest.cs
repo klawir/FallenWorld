@@ -19,15 +19,15 @@ namespace Game.Runtime.Quest
 
         public Quest(QuestData questData)
         {
-            GetID = questData.GetID;
-            GetNameOf = questData.GetNameOf;
-            GetDescribe = questData.GetDescribe;
-            GetIcons = questData.GetImages;
-            GetGoalType = questData.GetGoalType;
-            GetMonsterID = questData.GetMonsterID;
+            GetID = questData.ID;
+            GetNameOf = questData.Name;
+            GetDescribe = questData.Describe;
+            GetIcons = questData.States;
+            GetGoalType = questData.GoalType;
+            GetMonsterID = questData.MonsterID;
             GetState = QuestStateType.Deactivated;
-            GetLocation = questData.GetLocation;
-            GetReward = questData.GetReward;
+            GetLocation = questData.Location;
+            GetReward = questData.Reward;
         }
 
         internal void SetState(QuestStateType newState)

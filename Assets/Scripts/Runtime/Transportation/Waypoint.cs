@@ -33,12 +33,12 @@ namespace Game.Runtime.Transportation
             if (activated)
             {
                 Activate();
-                changeBechaviourForInteraction(_selectionMenu);
+                ChangeBechaviourForInteraction(_selectionMenu);
             }
 
             else
             {
-                awaitingForActivate();
+                AwaitingForActivate();
                 OnActivate += ActivateDefaultBechaviourForInteraction;
             }
 
@@ -50,7 +50,7 @@ namespace Game.Runtime.Transportation
             void ActivateDefaultBechaviourForInteraction()
             {
                 _selectionMenu.AddDiscovered(this);
-                changeBechaviourForInteraction(_selectionMenu);
+                ChangeBechaviourForInteraction(_selectionMenu);
                 OnActivate -= ActivateDefaultBechaviourForInteraction;
             }
 
@@ -101,7 +101,7 @@ namespace Game.Runtime.Transportation
         {
             if (activated)
             {
-                _savedData.Set(ID);
+                _savedData.ID = ID;
             }
 
             return _savedData;
@@ -109,11 +109,11 @@ namespace Game.Runtime.Transportation
 
         internal void LoadSaved()
         {
-            enablePrewarm();
+            EnablePrewarm();
             Activate();
         }
 
-        private void enablePrewarm()
+        private void EnablePrewarm()
         {
             for (int i = activateEffect.Length - 1; i >= 0; i--)
             {
@@ -122,12 +122,12 @@ namespace Game.Runtime.Transportation
             }
         }
 
-        private void awaitingForActivate()
+        private void AwaitingForActivate()
         {
             OnInteract += Activate;
         }
 
-        private void changeBechaviourForInteraction(SelectionMenu waypointMenu)
+        private void ChangeBechaviourForInteraction(SelectionMenu waypointMenu)
         {
             OnInteract += waypointMenu.Open;
         }
