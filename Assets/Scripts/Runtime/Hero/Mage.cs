@@ -1,5 +1,6 @@
 ﻿using Game.Runtime.Management;
 using Game.Runtime.Skill.Controler;
+using Game.Runtime.Skill.Controler.Ranged;
 using Game.Runtime.UI;
 
 namespace Game.Runtime.Actor.Hero
@@ -15,14 +16,13 @@ namespace Game.Runtime.Actor.Hero
         {
             if (!IsSwingingWithTheWeapon)
             {
-                IcurrentUsedSkill = currentSkillBindedUnderAKey;
-                IcurrentUsedSkill.Trigger();
+                TriggerCurrentSkill(currentSkillBindedUnderAKey);
             }
         }
 
         public void OnAttackAnimationStart()
         {
-            IcurrentUsedSkill.OnAnimationStart();
+            CurrentUsedSkill.OnAnimationStart();
         }
 
         protected override void SetModelOfWeapon(Item.Equipment item)
@@ -55,13 +55,13 @@ namespace Game.Runtime.Actor.Hero
             playerSkillControler.InitializeNormalAttack(HeroType.Mage, _normalAttack);
         }
 
-        private NormalAttackShoot CreateNormalAttack()
+        private NormalAttack CreateNormalAttack()
         {
-            ISkillControler _createdNormalAttack = _spellBuilder.CreateShootNormalAttack();
-            _createdNormalAttack.Initialize();
-            NormalAttackShoot _shootNormalAttackControler = (NormalAttackShoot)_createdNormalAttack;
+            ISkillControler createdNormalAttack = _spellBuilder.CreateShootNormalAttack();
+            createdNormalAttack.Initialize();
+            NormalAttack shootNormalAttackControler = (NormalAttack)createdNormalAttack;
 
-            return _shootNormalAttackControler;
+            return shootNormalAttackControler;
         }
     }
 }

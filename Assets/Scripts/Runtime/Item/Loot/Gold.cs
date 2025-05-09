@@ -17,7 +17,7 @@ namespace Game.Runtime.Item.Loot
 
         private bool m_interactionTrying;
 
-        public int Value { get; private set; }
+        public uint Value { get; private set; }
 
         protected override void OnParticleCollision(GameObject other)
         {
@@ -90,12 +90,7 @@ namespace Game.Runtime.Item.Loot
         
         private IEnumerator DisableGameObject()
         {
-            GlobalReferences.UIControler.CreateFloatingText(
-                StringUtility.BuildString(Value.ToString(), " gold"),
-                transform,
-                UI.FloatingTextType.MoveY,
-                Color.yellow);
-
+            CreateFloatingText();
             UnSubscribeHotKeyAltPressing();
             pickUpSfx.PlayRandomly();
             DisableLocalCollider();
@@ -108,6 +103,17 @@ namespace Game.Runtime.Item.Loot
             }
 
             Destroy();
+        }
+
+        private void CreateFloatingText()
+        {
+            string textForFloatingText = StringUtility.BuildStringWithAppendLineAtTheEnd(Value.ToString(), " gold");
+
+            GlobalReferences.UIControler.CreateFloatingText(
+                textForFloatingText,
+                transform,
+                UI.FloatingTextType.MoveY,
+                Color.yellow);
         }
 
         internal override void HasFellOnTheGround()
@@ -129,8 +135,7 @@ namespace Game.Runtime.Item.Loot
             IsSpawned = false;
             EndOfLifetime = false;
             _highlight.intensity = _normal;
-
-            Debug.Log(tag);
+            gameObject.SetActive(true);
         }
 
         protected override void Destroy()
@@ -141,7 +146,7 @@ namespace Game.Runtime.Item.Loot
             SetTagToCreated();
         }
 
-        internal void SetValue(int value)
+        internal void SetValue(uint value)
         {
             Value = value;
             singleLabel.SetText(value.ToString() + " gold");

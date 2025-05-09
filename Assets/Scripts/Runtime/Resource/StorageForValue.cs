@@ -1,4 +1,5 @@
 using System.Text;
+using Game.Runtime.Utility;
 using UnityEngine;
 
 namespace Game.Runtime
@@ -8,14 +9,12 @@ namespace Game.Runtime
         [SerializeField] protected float total = 100f;
         [SerializeField] protected float current;
 
-        protected StringBuilder _stringBuilder;
-
         public float Total => total;
         public float Current => current;
 
         public virtual void Initialize()
         {
-            _stringBuilder = new StringBuilder();
+
         }
 
         public virtual void AddToCurrent(float value)
@@ -41,8 +40,10 @@ namespace Game.Runtime
 
         public string TextAmount()
         {
-            _stringBuilder.Clear();
-            return _stringBuilder.Append((int)current).Append(" / ").Append(total).ToString();
+            int _current = (int)current;
+            string tmp = _current.ToString();
+
+            return StringUtility.BuildStringWithAppendLineAtTheEnd(tmp, " / ", total.ToString());
         }
 
         public float FillAmount

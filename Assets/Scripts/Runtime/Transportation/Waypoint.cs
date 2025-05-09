@@ -2,7 +2,7 @@
 using Game.Runtime.Audio;
 using Game.Runtime.Saved;
 using Game.Runtime.UI.GUI.Window.Transportation;
-using System.Text;
+using Game.Runtime.Utility;
 using UnityEngine;
 
 namespace Game.Runtime.Transportation
@@ -20,7 +20,7 @@ namespace Game.Runtime.Transportation
         internal System.Action OnTeleport;
         internal System.Action<Waypoint> OnInteractionWithWaypointArg;
 
-        private StringBuilder _stringBuilderForLabel;
+        private string _stringForLabel;
         private ParticleSystem.MainModule _effectMainModule;
         private SavedDataOfWaypoint _savedData;
         internal bool Activated => activated;
@@ -57,9 +57,9 @@ namespace Game.Runtime.Transportation
             _label.InitializeOwner(transform);
             _label.Initialization();
 
-            _stringBuilderForLabel = new StringBuilder();
-            _stringBuilderForLabel.Append(name).AppendLine().Append("Waypoint");
-            _label.SetText(_stringBuilderForLabel.ToString());
+            _stringForLabel = StringUtility.BuildStringWithAppendLineAtTheEnd(name);
+            _stringForLabel = StringUtility.BuildStringNoAppendLineAtTheEnd(_stringForLabel, "Waypoint");
+            _label.SetText(_stringForLabel.ToString());
             _savedData = new SavedDataOfWaypoint();
             Debug.Log(name+ " Initialization()");
         }
