@@ -1,53 +1,50 @@
 # Fallen world (symbolic repository)
 
-## A Diablo clone (PC) made with Unity3D
+## Diablo-inspired Action RPG Prototype (PC) made with Unity3D 
+## The project was my personal programming challenge, with a particular focus on developing game mechanics.
 
 <br>
 
-> [!IMPORTANT]
-> ### My job mainly involved programming the gameplay:
+### Game mechanics
 
-* Combat
-* Detecting
-* Health and mana
-* Skill & skill tree / cool down
-* Stash (store items)
-* Minimap
-* Level & experience progression
-* Stats
-  - Damage based on stats
-  - Conversion to other bonus
-* Loot
-* Quest & rewards
-* Trade
-* Waypoints & portals (fast travel)
-* Interaction
-* Visualization equipment on the character
-* UI
-  - Tooltip
-  - **Inventory & equipment (UI) I reprogramed it for my needed**
-  - Pasue menu
-  - Main menu
+- Combat system (melee & magic)
+- Detecting
+- Health, mana, and stat-based damage
+- Skill & skill tree system with cooldowns
+- Inventory, equipment & stash (**Inventory & equipment (UI) were 3rd-party and I reprogramed it for my needed**)
+- Minimap & map with player tracking
+- Loot & item stats
+- Character progression (levels, experience)
+- Quests and rewards
+- Trading system (vendors)
+- Fast travel (waypoints & portals)
+- Save / load (Easy Save 3)
+- Visualized equipment on player character
+- Main & pause menu
 
 ### Design
 
 * Main map
 * Creating and loading a character map
-  
+
+### Technical summary
+- Unity 2022.3.61f
+- Data-driven systems (SO)
+- Event-driven architecture
+- Dipendency injection
+- NavMesh & behavior logic
+- Object pooling and other design patterns
 <br>
 
-> [!WARNING]
-> ### Used assets
-
-* Save & Load
-* **Inventory & equipment (UI) as basic version**
-* Graphics and sounds
-* Navigation
-* Enemy AI
+### External assets
+- Navigation
+- Inventory & equipment UI (base)
+- Enemy AI bechaviour
+- Graphics & sounds
 
 <br>
 
-## Full presentation: https://rb.gy/eeta30
+## [Full video presentation]: https://rb.gy/eeta30
 
 Trial presentation:
 
