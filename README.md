@@ -1,7 +1,7 @@
 # Fallen world (symbolic repository)
 
 ## Diablo-inspired Action RPG Prototype (PC) made with Unity3D 
-## The project was my personal programming challenge, with a particular focus on developing game mechanics.
+## The project was my personal programming challenge, focusing on game mechanics development.
 
 <br>
 
