@@ -11,7 +11,7 @@
 - Detecting
 - Health, mana, and stat-based damage
 - Skill & skill tree system with cooldowns
-- Inventory, equipment & stash (**Inventory & equipment (UI) were 3rd-party and I reprogramed it for my needed**)
+- Inventory, equipment & stash (**Inventory & equipment (UI, 3rd-party) I reprogrammed it to fit project needs**)
 - Minimap & map with player tracking
 - Loot & item stats
 - Character progression (levels, experience)
@@ -31,7 +31,7 @@
 - Unity 2022.3.61f
 - Data-driven systems (SO)
 - Event-driven architecture
-- Dipendency injection
+- Dependency injection
 - NavMesh & behavior logic
 - Object pooling and other design patterns
 <br>
